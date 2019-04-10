@@ -76,10 +76,8 @@ input[type="email"] {
     .logo{
         position: absolute;
         top: 30px;
-        left: calc(50% - 100px);
+        left: 30px;
     }
-   }
-@media screen and (max-width: 350px) {
     .main{
         display: flex;
         justify-content: center;
@@ -96,7 +94,49 @@ input[type="email"] {
         align-items: center;
         /* background-color: aqua; */
         color: #b8b8b8;
-        font-size: 52px;
+        font-size: 42px;
+        text-align: center
+    }
+    p{
+        font-size: 22px;
+        text-align: center
+    }
+    form{
+        /* background-color: red; */
+        width: 80%;
+    }
+    .logo{
+        position: absolute;
+        top: 30px;
+        left: calc(50% - 100px);
+    }
+   }
+@media screen and (max-width: 350px) {
+    body{
+        background-color: #1e1e1e !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150vh;
+        font-family: 'Roboto', sans-serif;
+    }
+    .main{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        /* background-color: aqua; */
+        color: #b8b8b8;
+        font-size: 32px;
+    }
+    .main>h1{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        /* background-color: aqua; */
+        color: #b8b8b8;
+        font-size: 42px;
         text-align: center
     }
     p{
@@ -107,4 +147,10 @@ input[type="email"] {
         text-align: center !important;
         font-size: 20px;
     }
+    .footer{
+        text-align: center;
+        position: relative;
+
+      margin-top: 50px;  /* bottom: 30px; */
+    } 
   }
