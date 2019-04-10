@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>CHOIZY</title>
 </head>
 
@@ -26,15 +28,25 @@
             tsec = today % 60; today = Math.floor(today / 60); if (tsec < 10) tsec = '0' + tsec;
             tmin = today % 60; today = Math.floor(today / 60); if (tmin < 10) tmin = '0' + tmin;
             thour = today % 24; today = Math.floor(today / 24);
-            timestr = today + " дней " + thour + " часов " + tmin + " минут " + tsec + " секунд";
+            timestr = today + " днів " + thour + " годин " + tmin + " хвилин " + tsec + " секунд";
             document.getElementById('t').innerHTML = timestr;
             window.setTimeout("time()", 1000);
         }
     </script>
     <section class="main">
-        <h1>До старта осталось</h1>
+        <h1>До запуску залишилось</h1>
         <p><span id="t"></span></p>
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Повідомити про запуск</label>
+             <div>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введіть пошту">
+                <button type="submit" class="btn btn-primary">Надіслати</button>
+             </div>
+            </div>
+          </form>
     </section>
+    
 </body>
 
 </html>
