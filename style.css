@@ -61,6 +61,17 @@ input[type="email"] {
    input::-webkit-input-placeholder{
        color: #242424;
    }
+ .footer{
+     text-align: center;
+     position: absolute;
+     bottom: 30px;
+ }  
+ a{
+     color: #b8b8b8 !important;
+ }
+ a:hover{
+    color: #929292 !important;
+}
    @media screen and (max-width: 576px) {
     .logo{
         position: absolute;
