@@ -2709,12 +2709,12 @@ var FlipClock;
 
   FlipClock.Lang.Russian = {
 
-    'years'   : 'лет',
-    'months'  : 'месяцев',
-    'days'    : 'днів',
-    'hours'   : 'годин',
-    'minutes' : 'хвилин',
-    'seconds' : 'секунд'
+    'years'   : 'Лет',
+    'months'  : 'Месяцев',
+    'days'    : 'Днів',
+    'hours'   : 'Годин',
+    'minutes' : 'Хвилин',
+    'seconds' : 'Секунд'
 
   };
 
