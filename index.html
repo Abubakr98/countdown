@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,37 +13,51 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <script src="FlipClock-master/compiled/flipclock.js"></script>	
+        <link rel="stylesheet" href="style.css">
     <title>CHOIZY</title>
 </head>
-
+<script type="text/javascript">
+    timeend = new Date();
+    // IE и FF по разному отрабатывают getYear()
+    timeend = new Date(2019, 05 - 1, 1);
+    var today= new Date();
+    var time1=timeend-today;
+    var time=(time1 / 1000).toFixed(0);
+    console.log(time);
+    // для задания обратного отсчета до определенной даты укажите дату в формате:
+    // timeend= new Date(ГОД, МЕСЯЦ-1, ДЕНЬ);
+    // Для задания даты с точностью до времени укажите дату в формате:
+    // timeend= new Date(ГОД, МЕСЯЦ-1, ДЕНЬ, ЧАСЫ-1, МИНУТЫ);
+    function time() {
+        today = new Date();
+        today = Math.floor((timeend - today) / 1000);
+        tsec = today % 60; today = Math.floor(today / 60); if (tsec < 10) tsec = '0' + tsec;
+        tmin = today % 60; today = Math.floor(today / 60); if (tmin < 10) tmin = '0' + tmin;
+        thour = today % 24; today = Math.floor(today / 24);
+        timestr = today + " днів " + thour + " годин " + tmin + " хвилин " + tsec + " секунд";
+        document.getElementById('t').innerHTML = timestr;
+        window.setTimeout("time()", 1000);
+    }
+</script>
 <body onload="time()">
-    <script type="text/javascript">
-        timeend = new Date();
-        // IE и FF по разному отрабатывают getYear()
-        timeend = new Date(2019, 05 - 1, 1);
-        console.log(timeend);
-        // для задания обратного отсчета до определенной даты укажите дату в формате:
-        // timeend= new Date(ГОД, МЕСЯЦ-1, ДЕНЬ);
-        // Для задания даты с точностью до времени укажите дату в формате:
-        // timeend= new Date(ГОД, МЕСЯЦ-1, ДЕНЬ, ЧАСЫ-1, МИНУТЫ);
-        function time() {
-            today = new Date();
-            today = Math.floor((timeend - today) / 1000);
-            tsec = today % 60; today = Math.floor(today / 60); if (tsec < 10) tsec = '0' + tsec;
-            tmin = today % 60; today = Math.floor(today / 60); if (tmin < 10) tmin = '0' + tmin;
-            thour = today % 24; today = Math.floor(today / 24);
-            timestr = today + " днів " + thour + " годин " + tmin + " хвилин " + tsec + " секунд";
-            document.getElementById('t').innerHTML = timestr;
-            window.setTimeout("time()", 1000);
-        }
-    </script>
+  
     <div class="logo">
         <img src="logo.png" alt="" width="200px">
     </div>
     <section class="main">
+            
+
+        
 
         <h1>До запуску платформи залишилось</h1>
-        <p><span id="t"></span></p>
+        <!-- <p><span id="t"></span></p> -->
+        <div class="clock"></div>
+        <h2>Будь першим! Залиш свої контакти</h2>
         <form>
             <div class="form-group">
                 <label for="exampleInputtext">ПІБ</label>
@@ -62,13 +76,18 @@
             <button type="submit" class="btn btn-primary">Надіслати</button>
         </form>
         <div class="footer">
-        <h2>Ми в соцмережах</h2>
+        <h3>Ми в соцмережах</h3>
      
             <a href="https://www.instagram.com/choi_zy/?utm_source=ig_profile_share&igshid=rsefopuef2v5">   <i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/choizy.ukr/">   <i class="fab fa-facebook-square"></i></a>
      </div>
     </section>
-
+    <script type="text/javascript">
+        var clock = $('.clock').FlipClock(time, {
+            clockFace: 'DailyCounter',
+            countdown: true
+        });
+    </script>
 </body>
 
 </html>
